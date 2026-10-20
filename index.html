@@ -38,14 +38,10 @@
     </div>
     <div class="editions-label">Editions</div>
     <div class="week-list">
-      <div class="wk active" id="wk-43" onclick="sel(43)">
-        <div class="wk-num">Week 43</div>
-        <div class="wk-range">20–26 Oct 2026</div>
-        <span class="badge">Latest</span>
-      </div>
-      <div class="wk" id="wk-42" onclick="sel(42)">
+      <div class="wk active" id="wk-42" onclick="sel(42)">
         <div class="wk-num">Week 42</div>
         <div class="wk-range">10–19 Oct 2026</div>
+        <span class="badge">Latest</span>
       </div>
       <div class="wk" id="wk-41" onclick="sel(41)">
         <div class="wk-num">Week 41</div>
@@ -69,7 +65,6 @@ microsoftTeams.app.initialize()
   .catch(() => console.warn("Running outside Microsoft Teams"));
 
 const FILES = {
-  43:   'Week 43, 2026 - ibv APAC Dashboard.html',
   42:   'Week 42, 2026 - ibv APAC Dashboard.html',
   41:   'Week 41, 2026 - ibv APAC Dashboard.html',
   40:   'Week 40, 2026 - ibv APAC Dashboard.html',
@@ -80,7 +75,7 @@ function sel(id) {
   document.getElementById('wk-' + id).classList.add('active');
   document.getElementById('viewer').src = encodeURI(FILES[id]);
 }
-sel(43);
+sel(42);
 </script>
 </body>
 </html>

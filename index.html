@@ -5,15 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>APAC Market Radar — ib vogt</title>
 <style>
-  :root {
-    --green: #2E7D32; --green-lt: #E8F5E9; --green-dk: #1B5E20;
-    --muted: #757575; --border: #E0E0E0; --bg: #F5F5F5;
-    --surface: #FFFFFF; --text: #212121; --text2: #616161;
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --green: #4CAF50; --green-lt: #1B3A1C; --green-dk: #A5D6A7; --muted: #9E9E9E; --border: #333; --bg: #121212; --surface: #1E1E1E; --text: #F5F5F5; --text2: #BDBDBD; }
-  }
+  :root { --green: #2E7D32; --green-lt: #E8F5E9; --green-dk: #1B5E20; --muted: #757575; --border: #E0E0E0; --bg: #F5F5F5; --surface: #FFFFFF; --text: #212121; --text2: #616161; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --green: #4CAF50; --green-lt: #1B3A1C; --green-dk: #A5D6A7; --muted: #9E9E9E; --border: #333; --bg: #121212; --surface: #1E1E1E; --text: #F5F5F5; --text2: #BDBDBD; } }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; overflow: hidden; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
@@ -61,20 +54,21 @@
         <div class="wk-num">Week 38–39</div>
         <div class="wk-range">14–25 Sep 2026</div>
       </div>
-      <div class="wk" id="wk-36" onclick="sel(36)">
-        <div class="wk-num">Week 36</div>
-        <div class="wk-range">31 Aug–6 Sep 2026</div>
-      </div>
     </div>
   </div>
   <iframe id="viewer" title="Dashboard"></iframe>
 </div>
 <script>
-const FILES = { 42: 'week42.html', 41: 'week41.html', 40: 'week40.html', 3839: 'week3839.html', 36: 'week36.html' };
+const FILES = {
+  42:   'Week 42, 2026 - ibv APAC Dashboard.html',
+  41:   'Week 41, 2026 - ibv APAC Dashboard.html',
+  40:   'Week 40, 2026 - ibv APAC Dashboard.html',
+  3839: 'Week 38-39, 2026 - ibv APAC Dashboard.html'
+};
 function sel(id) {
   document.querySelectorAll('.wk').forEach(el => el.classList.remove('active'));
   document.getElementById('wk-' + id).classList.add('active');
-  document.getElementById('viewer').src = FILES[id];
+  document.getElementById('viewer').src = encodeURI(FILES[id]);
 }
 sel(42);
 </script>

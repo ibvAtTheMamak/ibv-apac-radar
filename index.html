@@ -27,6 +27,7 @@
   .badge { display: inline-block; margin-top: 4px; background: var(--green); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; }
   #viewer { flex: 1; height: 100%; border: none; background: var(--surface); }
 </style>
+<script src="https://res.cdn.office.net/teams-js/2.2.0/js/MicrosoftTeams.min.js"></script>
 </head>
 <body>
 <div class="layout">
@@ -59,6 +60,7 @@
   <iframe id="viewer" title="Dashboard"></iframe>
 </div>
 <script>
+microsoftTeams.app.initialize();
 const FILES = {
   42:   'Week 42, 2026 - ibv APAC Dashboard.html',
   41:   'Week 41, 2026 - ibv APAC Dashboard.html',

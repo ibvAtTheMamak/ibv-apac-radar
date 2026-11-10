@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Market Radar: Week 45, 2026 (2–10 Nov 2026)</title>
+<style>
+  :root{
+    --ink:#0a2540;
+    --paper:#f2f5f7;
+    --panel:#ffffff;
+    --line:#d7e0e7;
+    --moss:#0f5c96;
+    --moss-dark:#0b3d66;
+    --amber:#e2962f;
+    --amber-dark:#a86a1a;
+    --muted:#5c6670;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family: 'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 28px 80px;}
+
+  header.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:22px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  header.top h1{
+    font-size:2.15rem;
+    margin:0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  header.top .sub{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.86rem;
+    color:var(--muted);
+    max-width:360px;
+    text-align:right;
+  }
+  header.top .range{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.78rem;
+    color:var(--moss-dark);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+
+  .jumpnav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:14px 0 0;
+  }
+  .jumpnav a{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.76rem;
+    font-weight:600;
+    color:var(--moss-dark);
+    text-decoration:none;
+    border:1px solid var(--moss);
+    padding:5px 13px;
+    border-radius:20px;
+    background:var(--panel);
+    transition:background 0.15s ease, color 0.15s ease;
+    white-space:nowrap;
+  }
+  .jumpnav a:hover{
+    background:var(--moss);
+    color:#fff;
+  }
+  .jumpnav a.quiet{
+    color:var(--muted);
+    border-color:var(--line);
+  }
+  .jumpnav a.quiet:hover{
+    background:var(--muted);
+    border-color:var(--muted);
+    color:#fff;
+  }
+  html{scroll-behavior:smooth;}
+  .country-section{scroll-margin-top:24px;}
+
+  .stats{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    margin:28px 0 40px;
+    border:1px solid var(--line);
+  }
+  .stat{
+    background:var(--panel);
+    padding:18px 20px;
+  }
+  .stat .n{
+    font-size:2rem;
+    font-weight:600;
+    color:var(--moss-dark);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .l{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.74rem;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-top:4px;
+  }
+
+  /* ===== KEY TOPICS ===== */
+  .topics-head{
+    margin:0 0 4px;
+  }
+  .topics-head h2{
+    font-size:1.6rem;
+    margin:0 0 2px;
+    font-weight:600;
+  }
+  .topics-head p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.84rem;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+
+  .topic{
+    border-top:2px solid var(--ink);
+    padding:24px 0 30px;
+  }
+  .topic-num{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--amber-dark);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .topic h3{
+    font-size:1.25rem;
+    margin:0 0 10px;
+    font-weight:600;
+    line-height:1.3;
+  }
+  .topic p.lead{
+    font-size:0.98rem;
+    margin:0 0 16px;
+    max-width:720px;
+  }
+  .topic p.note{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.78rem;
+    color:var(--muted);
+    margin:12px 0 0;
+    max-width:720px;
+  }
+
+  /* grouped bar chart (Chart A) */
+  .chart-a{
+    display:flex;
+    gap:36px;
+    align-items:flex-end;
+    height:190px;
+    padding:0 8px 0 0;
+    margin:22px 0 6px;
+    border-bottom:1px solid var(--ink);
+  }
+  .chart-a .group{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .chart-a .bars-row{
+    display:flex;
+    gap:6px;
+    align-items:flex-end;
+    height:150px;
+  }
+  .chart-a .col{
+    width:34px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+  }
+  .chart-a .val{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.7rem;
+    color:var(--ink);
+    margin-bottom:4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .chart-a .bar{
+    width:100%;
+    border-radius:1px 1px 0 0;
+  }
+  .chart-a .bar.solar{ background:var(--moss); }
+  .chart-a .bar.wind{ background:var(--amber); }
+  .chart-a .glabel{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.76rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .legend{
+    display:flex;
+    gap:18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.76rem;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:10px;height:10px;display:inline-block;border-radius:1px;}
+  .legend i.solar{background:var(--moss);}
+  .legend i.wind{background:var(--amber);}
+
+  /* horizontal bar chart (Chart B) */
+  .chart-b{margin:20px 0 6px;}
+  .hbar-row{
+    display:grid;
+    grid-template-columns:120px 1fr 108px;
+    align-items:center;
+    gap:12px;
+    padding:8px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  .hbar-row .name{font-size:0.88rem;}
+  .hbar-track{background:var(--line);height:16px;}
+  .hbar-fill{height:100%;background:linear-gradient(90deg,var(--moss),var(--moss-dark));}
+  .hbar-row .figure{font-size:0.78rem;color:var(--muted);text-align:right;}
+
+  /* small data table used in topic 2 */
+  .rate-table{
+    width:100%;
+    max-width:560px;
+    border-collapse:collapse;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.82rem;
+    margin:18px 0 6px;
+  }
+  .rate-table th, .rate-table td{
+    text-align:left;
+    padding:7px 12px 7px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .rate-table th{
+    color:var(--muted);
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:0.66rem;
+    letter-spacing:0.05em;
+  }
+  .rate-table td.num{font-variant-numeric:tabular-nums;}
+
+  /* ===== COUNTRY SECTIONS ===== */
+  .country-section{
+    margin-bottom:8px;
+    border-top:2px solid var(--ink);
+  }
+  .country-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:22px 0 4px;
+  }
+  .country-head h2{
+    font-size:1.35rem;
+    margin:0;
+    font-weight:600;
+  }
+  .country-head .count-pill{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.7rem;
+    letter-spacing:0.04em;
+    color:var(--moss-dark);
+    border:1px solid var(--moss);
+    padding:2px 8px;
+    border-radius:20px;
+  }
+
+  .subsection{
+    padding:14px 0 4px;
+  }
+  .subsection h4{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--amber-dark);
+    font-weight:700;
+    margin:0 0 6px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+
+  .entry{
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns: 84px 1fr;
+    gap:16px;
+  }
+  .subsection .entry:first-of-type{border-top:none;}
+  .entry .date{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.76rem;
+    color:var(--muted);
+    padding-top:3px;
+  }
+  .entry h3{
+    margin:0 0 5px;
+    font-size:0.99rem;
+    font-weight:600;
+    line-height:1.35;
+  }
+  .entry p{
+    margin:0 0 7px;
+    font-size:0.9rem;
+    color:#233b4d;
+  }
+  .entry a{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.76rem;
+    color:var(--moss-dark);
+    text-decoration:none;
+    border-bottom:1px solid var(--moss);
+  }
+  .entry a:hover{color:var(--amber); border-color:var(--amber);}
+
+  .similar{
+    margin-top:10px;
+  }
+  .similar summary{
+    display:inline-block;
+    cursor:pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--amber-dark);
+    border:1px solid var(--amber);
+    border-radius:20px;
+    padding:4px 12px;
+    list-style:none;
+    user-select:none;
+  }
+  .similar summary::-webkit-details-marker{display:none;}
+  .similar summary::before{
+    content:"⌕ ";
+  }
+  .similar summary:hover{
+    background:var(--amber);
+    color:#fff;
+  }
+  .similar[open] summary{
+    background:var(--amber);
+    color:#fff;
+  }
+  .similar .kind{
+    font-size:0.62rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    opacity:0.8;
+    margin-left:4px;
+  }
+  .similar ul{
+    list-style:none;
+    margin:10px 0 2px;
+    padding:0 0 0 14px;
+    border-left:2px solid var(--line);
+  }
+  .similar li{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.82rem;
+    padding:6px 0;
+    color:#233b4d;
+  }
+  .similar li .sdate{
+    color:var(--muted);
+    font-size:0.72rem;
+    margin-right:8px;
+    font-variant-numeric:tabular-nums;
+  }
+  .similar li a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  .similar li a:hover{color:var(--amber-dark); border-color:var(--amber);}
+  .similar .empty-similar{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.8rem;
+    color:#8a97a3;
+    margin:10px 0 2px;
+    padding-left:14px;
+    border-left:2px solid var(--line);
+  }
+
+  .empty-sub{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.8rem;
+    color:#8a97a3;
+    padding:10px 0 10px;
+  }
+
+  .pastentries{
+    margin:0 0 16px;
+  }
+  .pastentries summary{
+    display:inline-block;
+    cursor:pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--moss-dark);
+    border:1px solid var(--moss);
+    border-radius:20px;
+    padding:4px 12px;
+    list-style:none;
+    user-select:none;
+  }
+  .pastentries summary::-webkit-details-marker{display:none;}
+  .pastentries summary::before{
+    content:"↺ ";
+  }
+  .pastentries summary:hover{
+    background:var(--moss);
+    color:#fff;
+  }
+  .pastentries[open] summary{
+    background:var(--moss);
+    color:#fff;
+  }
+  .pastentries .kind{
+    font-size:0.62rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    opacity:0.8;
+    margin-left:4px;
+  }
+  .pastentries ul{
+    list-style:none;
+    margin:10px 0 2px;
+    padding:0 0 0 14px;
+    border-left:2px solid var(--line);
+  }
+  .pastentries li{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.82rem;
+    padding:6px 0;
+    color:#233b4d;
+  }
+  .pastentries li .sdate{
+    color:var(--muted);
+    font-size:0.72rem;
+    margin-right:8px;
+    font-variant-numeric:tabular-nums;
+  }
+  .pastentries li a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  .pastentries li a:hover{color:var(--moss-dark); border-color:var(--moss);}
+
+  .empty-note{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.82rem;
+    color:var(--muted);
+    padding:14px 0 24px;
+    border-top:2px solid var(--ink);
+  }
+
+  footer{
+    margin-top:44px;
+    padding-top:16px;
+    border-top:2px solid var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.74rem;
+    color:var(--muted);
+  }
+
+  @media (max-width:600px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .entry{grid-template-columns:1fr;gap:4px;}
+    .entry .date{padding-top:0;}
+    header.top .sub{text-align:left;max-width:none;}
+    .chart-a{gap:16px;}
+    .hbar-row{grid-template-columns:88px 1fr 78px;}
+  }
+  /* S&P library section at bottom */
+  .sp-library{
+    margin:48px 0 0;
+    padding:24px 28px;
+    background:color-mix(in srgb,#E5312B 4%,var(--bg));
+    border:1px solid color-mix(in srgb,#E5312B 18%,transparent);
+    border-radius:8px;
+  }
+  .sp-library h2{
+    font-size:0.95rem;
+    font-weight:700;
+    color:#E5312B;
+    margin:0 0 3px;
+    letter-spacing:0.01em;
+  }
+  .sp-library .sp-lib-note{
+    font-size:0.77rem;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
+  .sp-lib-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:9px 0;
+    border-bottom:1px solid color-mix(in srgb,#E5312B 12%,transparent);
+  }
+  .sp-lib-row:last-child{border-bottom:none;}
+  .sp-lib-title{
+    font-size:0.87rem;
+    color:var(--body);
+    flex:1;
+  }
+  .sp-lib-links{
+    display:flex;
+    gap:7px;
+    flex-shrink:0;
+  }
+  .sp-lib-links a{
+    display:inline-block;
+    font-size:0.68rem;
+    font-weight:800;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:#E5312B;
+    border:1.5px solid #E5312B;
+    border-radius:4px;
+    padding:3px 10px;
+    text-decoration:none;
+    transition:background 0.15s,color 0.15s;
+  }
+  .sp-lib-links a:hover{background:#E5312B;color:#fff;}
+  /* S&P tag on date column */
+  .sp-tag{
+    display:block;
+    font-size:0.58rem;
+    font-weight:800;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:#E5312B;
+    margin-top:5px;
+  }
+
+  /* ===== SUMMARY (above Key Topics) ===== */
+  .summary{
+    margin:0 0 30px;
+    padding:18px 22px 16px;
+    border-left:4px solid var(--moss);
+    background:color-mix(in srgb,var(--moss) 5%,transparent);
+    border-radius:0 6px 6px 0;
+  }
+  .summary h2{
+    font-size:1.05rem;
+    margin:0 0 10px;
+    font-weight:600;
+  }
+  .summary ul{margin:0; padding-left:18px;}
+  .summary li{
+    font-size:0.96rem;
+    line-height:1.5;
+    margin:0 0 10px;
+    max-width:780px;
+  }
+  .summary li:last-child{margin-bottom:0;}
+  .summary li strong{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.7rem;
+    letter-spacing:0.07em;
+    text-transform:uppercase;
+    color:var(--amber-dark);
+    margin-right:6px;
+  }
+  .rate-table.wide{max-width:780px;}
+  .rate-table.wide td.num{text-align:right;}
+
+  /* ===== EMPTY SUBSECTIONS STRIP (bottom of each country section) ===== */
+  .empty-strip{
+    margin-top:22px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+  }
+  .empty-strip .strip-label{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.72rem;
+    color:var(--muted);
+    margin:0 0 10px;
+  }
+  .empty-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    align-items:start;
+  }
+  .empty-card{
+    background:color-mix(in srgb,var(--muted) 7%,transparent);
+    border-radius:6px;
+    padding:10px 12px 8px;
+  }
+  .empty-card h4{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--amber-dark);
+    font-weight:700;
+    margin:0 0 4px;
+  }
+  .empty-card .pastentries{margin-top:2px;}
+  .empty-card .nopast{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;font-size:0.78rem;color:#8a97a3;}
+  @media (max-width:760px){.empty-grid{grid-template-columns:1fr;}}
+
+  .rate-table tr.grp td{
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--amber-dark);
+    font-weight:700;
+    padding-top:14px;
+    border-bottom:1px solid var(--line);
+  }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.jumpnav a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id = this.getAttribute('href').replace('#','');
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+});
+</script><body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="range">Jump to a market</div>
+      <h1>Market Radar: Week 45, 2026 (2–10 Nov 2026)</h1>
+      <nav class="jumpnav">
+        <a href="#philippines">Philippines</a>
+        <a href="#malaysia">Malaysia</a>
+        <a href="#indonesia">Indonesia</a>
+        <a href="#thailand">Thailand</a>
+        <a href="#vietnam">Vietnam</a>
+        <a href="#south-korea">South Korea</a>
+        <a href="#singapore" class="quiet">Singapore</a>
+      </nav>
+    </div>
+    <div class="sub">
+      Auto-refreshed radar entries, 2–10 Nov 2026 (Week 45)<br>
+      Source: MarketResources country radar files (SharePoint)
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">16</div><div class="l">Entries this week</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">Countries with activity</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">Distinct entry types</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Quiet markets</div></div>
+  </div>
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <ul>
+      <li>In Malaysia, about 1.4 GW of CRESS solar with BESS has lined up in six weeks, all for data centre offtake: a term sheet (G3nerasi Kinta), a development agreement with DayOne expected as offtaker (TNB Renewables and IOI) and awarded contracts (Northern Solar). Unlike the other two, Northern Solar's 189 MWac names no GLC or large conglomerate partner, showing data centre CRESS offtake is also going to developers outside the big groups.</li>
+      <li>In the Philippines, NGCP's Project Airbag is already under way with 850 MW of batteries across six sites (part of a wider 10,000 MW pitch that is not an approved budget), while NGCP asks the DOE to withdraw circulars that would let generators and TransCo build transmission. More storage helps, but if NGCP stays the only builder, grid connection timelines remain outside developers' hands.</li>
+      <li>In Vietnam, 2026 solar ceilings are 7% to 17% above 2025, and solar with BESS is up by as much as 16.9%. The largest rises are in the Central region, which includes Dak Lak (+14.5% for floating with BESS). These are maximum prices, not awarded tariffs, but they give new BESS-paired bids more headroom.</li>
+    </ul>
+  </div>
+
+  <div class="topics-head">
+    <h2>Key Topics</h2>
+    <p>Deeper cuts across this week's entries.</p>
+  </div>
+
+  <div class="topic">
+    <div class="topic-num">Topic 1 · From Malaysia (Nov 9, Nov 6)</div>
+    <h3>Malaysia's CRESS pipeline kept adding data centre offtake after the October surcharge, with TNB on both the supply and offtake side of the Bahau deal</h3>
+    <p class="lead">Two CRESS entries this week add data centre offtake to the pipeline after the 14 October revision of the system access charge to 18 sen/kWh, which applies until end-2027. TNB Renewables and IOI Corporation agreed to develop a 500 MWac solar project with 250 MW / 1,000 MWh of storage on about 1,300 acres of IOI land in Bahau, Negeri Sembilan. TNB Renewables holds 70% of the project company, IOI's Luminous Aspect 25% and CSP 500MW 5%, and DayOne Data Centres is expected to procure up to 500 MWac under a 21-year offtake agreement with TNB. Separately, Northern Solar secured two CRESS contracts totalling 189 MWac of solar with BESS for two data centres: 100 MWac for a data centre developed by a Malaysian property investment and data centre infrastructure company (annual need 262.8 million kWh) and 89 MWac awarded by a Malaysian subsidiary of a Singapore-based data centre operator (233.89 million kWh a year), together nearly 500 million kWh a year. Neither entry states a tariff or SAC assumption, so they show contracting continuing after the surcharge rather than the terms. The Bahau storage sizing works out to 50% of export capacity and four hours (250 MW against 500 MWac, 1,000 MWh over 250 MW), the firm-supply BESS pairing cited in the 21 September CRESS entry; those ratios are derived from the two figures. Alongside the 29 September G3nerasi Kinta term sheet, the three deals put roughly 1.4 GW of CRESS solar in front of data centre buyers over six weeks, at different stages (sum derived from the entries).</p>
+    <div class="chart-b">
+      <div class="hbar-row"><span class="name">G3nerasi Kinta, term sheet signed (Sep 29 entry)</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="figure">680 MWac</span></div>
+      <div class="hbar-row"><span class="name">TNB Renewables / IOI, Bahau, agreement to develop, DayOne offtake expected (Nov 9)</span><div class="hbar-track"><div class="hbar-fill" style="width:73.5%"></div></div><span class="figure">500 MWac</span></div>
+      <div class="hbar-row"><span class="name">Northern Solar, two CRESS contracts awarded (Nov 6)</span><div class="hbar-track"><div class="hbar-fill" style="width:27.8%"></div></div><span class="figure">189 MWac</span></div>
+    </div>
+  </div>
+
+  <div class="topic">
+    <div class="topic-num">Topic 2 · From Vietnam (Nov 9, Nov 4, Nov 7)</div>
+    <h3>Vietnam's 2026 solar price ceilings are up 7% to 17% on 2025, with the biggest rises in the Central region, which includes Dak Lak</h3>
+    <p class="lead">Decision 2946/QD-BCT, effective 5 November, sets 2026 maximum solar generation prices by region and type under Circular 09/2025. Against the 2025 ceilings in the comparison table, every solar category rises: by 13.0% to 15.4% in the North, 14.5% to 16.9% in the Central region and 6.9% to 9.1% in the South. For solar paired with BESS the rise runs from 6.9% (South, floating) to 16.9% (Central, ground-mounted). The highest 2026 ceiling is VND 2,120.31/kWh for floating solar with BESS in the North and the lowest is VND 1,104.32/kWh for ground-mounted without BESS in the South. The decision also redraws the zoning: three regions covering 34 provinces and cities, with 18 in the North, 8 in the Central region (Quang Tri, Hue, Quang Ngai, Da Nang, Gia Lai, Dak Lak, Khanh Hoa and Lam Dong) and 8 in the South. A separate third-party project, the 452 MW Ea Sup Thuong floating solar project with BESS in Dak Lak (not ib vogt's own Dak Lak project), was approved on 31 October with US$355 million of investment and completion by end-2028. It falls in the Central floating-with-BESS category, where the ceiling is VND 1,703.21/kWh, up 14.5% from VND 1,487.18. That is the largest rise for floating with BESS across the three regions. The Dak Lak entry gives no tariff for the project, and these are maximum prices rather than awarded tariffs. The table also shows wind ceilings higher, from 4.8% (Central onshore) to 11.7% (North onshore); Gia Lai, in the Central zone for solar, broke ground on the 180 MW Van Canh 2 wind farm this week (VND 7,700 billion, operation in 2028).</p>
+    <table class="rate-table wide">
+      <thead><tr><th>Ceiling tariff, VND/kWh</th><th>2025</th><th>2026</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="4">Wind</td></tr>
+        <tr><td>North, onshore</td><td class="num">1,959.40</td><td class="num"><strong>2,187.83</strong></td><td class="num">11.7%</td></tr>
+        <tr><td>Central, onshore</td><td class="num">1,807.40</td><td class="num"><strong>1,893.61</strong></td><td class="num">4.8%</td></tr>
+        <tr><td>South, onshore</td><td class="num">1,840.30</td><td class="num"><strong>2,035.37</strong></td><td class="num">10.6%</td></tr>
+        <tr><td>Nationwide, near-shore</td><td class="num">1,987.40</td><td class="num"><strong>2,126.92</strong></td><td class="num">7.0%</td></tr>
+        <tr class="grp"><td colspan="4">Solar (no BESS)</td></tr>
+        <tr><td>North, ground-mounted</td><td class="num">1,382.70</td><td class="num"><strong>1,591.02</strong></td><td class="num">15.1%</td></tr>
+        <tr><td>North, floating</td><td class="num">1,685.80</td><td class="num"><strong>1,939.74</strong></td><td class="num">15.1%</td></tr>
+        <tr><td>Central, ground-mounted</td><td class="num">1,107.10</td><td class="num"><strong>1,293.17</strong></td><td class="num">16.8%</td></tr>
+        <tr><td>Central, floating</td><td class="num">1,336.10</td><td class="num"><strong>1,560.63</strong></td><td class="num">16.8%</td></tr>
+        <tr><td>South, ground-mounted</td><td class="num">1,012.00</td><td class="num"><strong>1,104.32</strong></td><td class="num">9.1%</td></tr>
+        <tr><td>South, floating</td><td class="num">1,228.20</td><td class="num"><strong>1,340.21</strong></td><td class="num">9.1%</td></tr>
+        <tr class="grp"><td colspan="4">Solar with BESS</td></tr>
+        <tr><td>North, ground-mounted</td><td class="num">1,571.98</td><td class="num"><strong>1,813.48</strong></td><td class="num">15.4%</td></tr>
+        <tr><td>North, floating</td><td class="num">1,876.57</td><td class="num"><strong>2,120.31</strong></td><td class="num">13.0%</td></tr>
+        <tr><td>Central, ground-mounted</td><td class="num">1,257.05</td><td class="num"><strong>1,469.90</strong></td><td class="num">16.9%</td></tr>
+        <tr><td>Central, floating</td><td class="num">1,487.18</td><td class="num"><strong>1,703.21</strong></td><td class="num">14.5%</td></tr>
+        <tr><td>South, ground-mounted</td><td class="num">1,149.86</td><td class="num"><strong>1,254.97</strong></td><td class="num">9.1%</td></tr>
+        <tr><td>South, floating</td><td class="num">1,367.13</td><td class="num"><strong>1,461.39</strong></td><td class="num">6.9%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="topic">
+    <div class="topic-num">Topic 3 · From the Philippines NGCP entries (Nov 1, Nov 1)</div>
+    <h3>NGCP is pressing ahead with 850 MW of Project Airbag batteries while asking the DOE to withdraw the circulars that would let others build transmission</h3>
+    <p class="lead">The imminent piece is NGCP's Project Airbag. At a media chat on 29 October, Henry Sy Jr., chairman of NGCP's parent Synergy Grid & Development Philippines, pitched a nationwide chain of battery storage, and NGCP says 850 MW is already under way across six sites (Laoag, Gamu, Santiago, Calatrava, Dumanjug and Ubay), costed at about P59.5 billion, with another 1,000 MW across 12 sites under assessment. The wider pitch of 10,000 MW within five years, at about P700 billion (about $11 billion), is the longer-range ambition, and the article notes it is not an approved budget, MWh is not reported and ownership is unresolved. Sy framed batteries as a bridge to ease high electricity costs and prepare for a possible El Nino in 2027, not a replacement for dependable generation. The second entry matters as much for developers. In a statement on 1 November, NGCP asked the DOE to withdraw two circulars that let TransCo and generation companies finance or build transmission, arguing they do not fix the regulatory, permitting and right-of-way delays, that projects outside the Transmission Development Plan would complicate coordination of construction schedules, design and grid integration, and that overlapping planning and review would blur accountability. It cited a February 2025 arbitral award on its exclusive responsibility for the plan. Read together, NGCP is expanding its own role in storage while resisting others building the wires, and the circulars leave that question with the DOE. Earlier radar entries show where the strain sits: the Visayas grid logged 134 yellow and red alerts through 14 September, and the DOE endorsed 137 projects (17.8 GW) for grid impact study, with batteries the largest group at 85 projects.</p>
+  </div>
+
+  <div class="country-section" id="philippines">
+    <div class="country-head"><h2>Philippines</h2><span class="count-pill">4 entries</span></div>
+
+    <div class="subsection">
+      <h4>Competitor activity</h4>
+      <div class="entry">
+        <div class="date">Nov 3</div>
+        <div>
+          <h3>AboitizPower Unit to Acquire 60% of Manolo Fortich Power Corp. for P750M, Developer of 191 MWac Solar plus BESS in Bukidnon</h3>
+          <p>Aboitiz Renewables Inc. (ARI), a wholly owned subsidiary of AboitizPower, signed an agreement on 30 October 2026 to acquire a 60 percent stake in Manolo Fortich Power Corp. (MFPC), the developer of a solar power facility integrated with a BESS and interconnecting facilities, with estimated capacity of 191 MWac in Barangay Dalirig, Manolo Fortich, Bukidnon. ARI will subscribe to P750 million of MFPC shares: P3.75 million for 3.75 million common shares at P1 each, and P746.25 million for 74.625 million redeemable preferred shares at P10 each, subject to SEC approval of an increase in MFPC's authorised capital stock. The initial subscription is paid in cash at closing and the remainder is payable when MFPC's board calls it after SEC approval. Closing is subject to customary conditions including technical, legal, financial, tax and land due diligence. AboitizPower said the price is less than 10 percent of its consolidated assets as of 31 December 2025.</p>
+          <a href="https://tribune.net.ph/2026/11/03/aboitizpower-pursues-bukidnon-solar-deal" target="_blank" rel="noopener">tribune.net.ph ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-10-16</span> <a href="https://www.renews.biz/solar/norfund-and-impact-fund-denmark-back-philippines-solar/" target="_blank" rel="noopener">Norfund and Impact Fund Denmark Acquire Combined 49% Equity in Vena Energy's 500 MWp Ixus Bugallon Solar Project</a></li>
+              <li><span class="sdate">2026-10-02</span> <a href="https://solarbytes.info/business-bytes/aboitiz-renewables-adds-789-mw-solar-capacity-across-six-philippines-plants-12617557" target="_blank" rel="noopener">Aboitiz Renewables Adds 789 MW Across Six Solar Plants, 846 MW in 48 Months</a></li>
+              <li><span class="sdate">2026-09-10</span> <a href="https://technode.global/2026/09/10/singapores-sembcorp-scraps-82m-full-takeover-of-philippines-solar-developer-puente-al-sol/" target="_blank" rel="noopener">Sembcorp Terminates S$105M Proposed Acquisition of Philippine Solar Developer Puente Al Sol</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Nov 1</div>
+        <div>
+          <h3>NGCP Chairman Henry Sy Jr. Pitches P700B, 10,000 MW Battery Buildout Within Five Years; 850 MW Under Project Airbag at Six Sites, 1,000 MW at 12 Sites Under Assessment</h3>
+          <p>At a media chat on Thursday (29 October), Henry Sy Jr., chairman of NGCP's parent Synergy Grid &amp; Development Philippines, pitched a nationwide chain of battery energy storage systems to ease high electricity costs and prepare the grid for a possible El Nino in 2027. He said the buildout could reach 10,000 MW in five years. At a cost of at least P7 billion per 100 MW, the first 850 MW would cost about P59.5 billion and the full 10,000 MW about P700 billion (about $11 billion). The plan is tied to NGCP's Project Airbag: NGCP says 850 MW is ongoing across six sites (Laoag, Gamu, Santiago, Calatrava, Dumanjug and Ubay), with another 1,000 MW across 12 sites under assessment. Sy framed batteries as a bridge: they do not create electricity and cannot replace dependable generation over long periods. The Visayas is especially tight. The article notes the P700B is not an approved budget, storage duration (MWh) is not reported, and ownership is unresolved.</p>
+          <a href="https://gulfnews.com/business/energy/manila-billionaire-henry-sy-jr-pitches-11-billion-10000mw-powerbank-to-cut-electricity-rates-will-govt-let-him-do-it-1.500731359" target="_blank" rel="noopener">gulfnews.com ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(2)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-09-27</span> <a href="https://www.briefasia.com/article/philippines-advances-178-gw-power-projects-grid-impact-review" target="_blank" rel="noopener">Philippines DOE Endorses 137 Projects (17.8 GW) for Grid Impact Study in H1 2026, BESS Dominates with 85 Projects</a></li>
+              <li><span class="sdate">2026-09-15</span> <a href="https://tribune.net.ph/2026/09/15/visayas-grid-under-yellow-and-red-alerts-battery-storage-proposed-to-ease-crisis" target="_blank" rel="noopener">Visayas Grid Logs 134 Yellow and Red Alerts in 2026 Through 14 September; ICSC Proposes Distributed RE+BESS</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>PPAs &amp; MoUs</h4>
+      <div class="entry">
+        <div class="date">Nov 9</div>
+        <div>
+          <h3>Pepsi-Cola Products Philippines Partners with First Gen for About 11.35 MW of Geothermal Power at Three Plants in Batangas, La Union and Pampanga</h3>
+          <p>Pepsi-Cola Products Philippines Inc. (PCPPI) partnered with First Gen Group to source approximately 11.35 MW of geothermal power for its manufacturing facilities in Sto. Tomas, Batangas; Rosario, La Union; and San Fernando, Pampanga. The agreement was formalised in a ceremonial signing on 15 October 2026 and forms part of PCPPI's efforts to increase renewable energy use across its 11 manufacturing plants nationwide. First Gen has more than 1,700 MW of installed geothermal capacity, plus over 400 MW of renewable capacity from hydro, solar and wind. The article does not state the contract term or pricing.</p>
+          <a href="https://insiderph.com/pepsi-philippines-taps-first-gen-to-expand-renewable-energy-use" target="_blank" rel="noopener">insiderph.com ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-10-19</span> <a href="https://edge.pse.com.ph/downloadHtml.do?file_id=1981439" target="_blank" rel="noopener">ACEN RES to Supply 100% Renewable Energy to TUV Rheinland Philippines Main Office in Makati Under RCOA</a></li>
+              <li><span class="sdate">2026-10-11</span> <a href="https://tradersunion.com/news/financial-news/show/3758617-jollibee-renewable-power-deal-philippines/" target="_blank" rel="noopener">Jollibee Group Expands Renewable Power Supply Agreement with First Gen to 189 Company-Owned Stores</a></li>
+              <li><span class="sdate">2026-09-18</span> <a href="https://renewablesnow.com/news/contis-wendys-philippines-to-get-100-percent-renewable-power-from-acen-1301448/" target="_blank" rel="noopener">ACEN RES Signs Retail Electricity Supply Agreement for 23 Conti's and Wendy's Philippines Stores</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>Markets</h4>
+      <div class="entry">
+        <div class="date">Nov 1</div>
+        <div>
+          <h3>NGCP Asks DOE to Withdraw Two Circulars Allowing Gencos and TransCo to Finance or Build Transmission, Saying They Won't Fix Permitting and Right-of-Way Delays</h3>
+          <p>NGCP is seeking withdrawal of two DOE circulars that allow other entities to finance or build transmission facilities, one covering the state-owned National Transmission Corp. (TransCo) and the other covering power generation companies. In a Sunday statement it said it submitted a consolidated position paper to Energy Secretary Sharon Garin. NGCP argues the circulars will not resolve the regulatory, permitting and right-of-way constraints that delay grid projects. It objects to provisions allowing projects outside the Transmission Development Plan (TDP), saying separately planned facilities could complicate coordination of construction schedules, design and grid integration, and that overlapping planning and review processes could complicate accountability and cause further delays. It cited a 19 February 2025 arbitral award which it said affirmed its exclusive responsibility to prepare the TDP during the concession period.</p>
+          <a href="https://malaya.com.ph/business/business-news/ngcp-opposes-doe-rules-on-transmission-projects/" target="_blank" rel="noopener">malaya.com.ph ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(2)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-10-05</span> <a href="https://tribune.net.ph/2026/10/05/erc-clears-grid-link-for-isabela-solar" target="_blank" rel="noopener">ERC Approves BKS Green Energy Corp. Authority to Develop Point-to-Point Transmission Facility for 33.831 MWp Limbauan Solar Phase 2</a></li>
+              <li><span class="sdate">2026-08-20</span> <a href="https://powerphilippines.com/erc-clears-grid-connection-facilities-for-22-mwp-bulacan-solar-project-to-meralco/" target="_blank" rel="noopener">ERC Approves San Ildefonso Alternative Energy Corp. to Own Grid Connection Facilities for 22 MWp Bulacan 2 Solar</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>Policy changes</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-07</span> <a href="https://www.ngcp.ph/Attachment-Uploads/Customer%20Bulletin%20Nos-2026-10-07-09-59-21.%202026-52.pdf" target="_blank" rel="noopener">ERC Extends GEA-All Charge Suspension for Further Four Months (September to December 2026 Billing)</a></li>
+            <li><span class="sdate">2026-09-10</span> <a href="https://solarquarter.com/2026/09/10/erc-simplifies-grid-compliance-tests-for-legacy-power-plants-under-resolution-no-27-in-philippines/" target="_blank" rel="noopener">ERC Issues Resolution No. 27 Simplifying Grid Compliance Testing Requirements for Legacy Power Plants</a></li>
+            <li><span class="sdate">2026-09-06</span> <a href="https://powerphilippines.com/da-doe-plan-puts-3m-ha-of-farmland-off-limits-to-energy-projects/" target="_blank" rel="noopener">DA and DOE to Geofence 3 Million Hectares of Priority Farmland from Renewable Energy Projects</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-23</span> <a href="https://tribune.net.ph/2026/10/23/citicore-renewables-gets-p35b-vote-of-confidence-for-900-mwp-batangas-solar-projects" target="_blank" rel="noopener">Citicore Secures Record P35.014B Syndicated Financing from BPI, LANDBANK and DBP for Five GEA-4 Solar Projects in Batangas</a></li>
+            <li><span class="sdate">2026-10-10</span> <a href="https://solarquarter.com/2026/10/10/acen-secures-e50-million-loan-to-expand-renewable-energy-portfolio/" target="_blank" rel="noopener">ACEN Corp. Secures EUR 50 Million (P3.5 Billion) Term Loan from ING Bank</a></li>
+            <li><span class="sdate">2026-09-17</span> <a href="https://energynews.pro/en/philippines-alternergy-issues-32-million-green-notes-in-debt-market-debut" target="_blank" rel="noopener">Alternergy Holdings Issues PHP 2 Billion Green Notes at 7.75% in Debut Debt Capital Markets Transaction</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="malaysia">
+    <div class="country-head"><h2>Malaysia</h2><span class="count-pill">3 entries</span></div>
+
+    <div class="subsection">
+      <h4>Competitor activity</h4>
+      <div class="entry">
+        <div class="date">Nov 9</div>
+        <div>
+          <h3>TNB Renewables and IOI Corporation Agree to Develop 500 MWac Solar with 250 MW / 1,000 MWh BESS in Bahau, Negeri Sembilan; DayOne Expected to Offtake Up to 500 MWac Under CRESS</h3>
+          <p>IOI Corporation and TNB Renewables (a subsidiary of Tenaga Nasional Berhad) signed an agreement to develop a 500 MWac solar project with 250 MW / 1,000 MWh of battery storage in Bahau, Negeri Sembilan, on approximately 1,300 acres of IOI land. Ownership of Bahau Energy Ventures: TNB Renewables 70%, IOI subsidiary Luminous Aspect 25% and CSP 500MW 5%. Under the Corporate Renewable Energy Supply Scheme (CRESS), DayOne Data Centres is expected to procure up to 500 MWac of renewable energy through a 21-year offtake agreement with TNB.</p>
+          <a href="https://solarbytes.info/india-bytes/tnb-ioi-500-mwac-solar-1000-mwh-bess-cress-project-bahau-malaysia-2026-12796469" target="_blank" rel="noopener">solarbytes.info ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-09-03</span> <a href="https://en.antaranews.com/news/429748/dayone-and-tnb-explore-up-to-15-gw-of-on-site-power-generation" target="_blank" rel="noopener">DayOne Data Centers and TNB GenCo Sign MoU to Explore 1.5 GW On-Site Power Generation + BESS for New Selangor Data Campus</a></li>
+              <li><span class="sdate">2026-06-15</span> <a href="https://www.thefastmode.com/technology-solutions/49022-dayone-data-centers-signs-landmark-renewable-energy-agreements-with-tnb-in-malaysia" target="_blank" rel="noopener">DayOne Data Centers Signs 1.5 GWp Solar + 2.2 GWh BESS CRESS Agreements with TNB Renewables and GenCo</a></li>
+              <li><span class="sdate">2025-06-17</span> <a href="https://technode.global/2025/06/17/dayone-signs-cress-agreement-with-tnb-to-secure-up-to-500mw-of-renewable-energy/" target="_blank" rel="noopener">DayOne Signs CRESS Agreement with TNB to Secure Up to 500MW of Renewable Energy</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Nov 5</div>
+        <div>
+          <h3>RedPlanet's AZTI Systems Wins RM7.09M Order for Equipment on a 15 MWac Large-Scale Solar Project in Sabah; Six-Month Completion</h3>
+          <p>AZTI Systems Sdn Bhd, a wholly owned subsidiary of RedPlanet Bhd, secured a purchase order worth RM7.09 million for implementation of a 15 MWac large-scale solar power project in Sabah. The required equipment is expected to include inverters, cables and remote terminal equipment. The project is expected to be completed within six months, with the commencement date to be agreed by the parties. RedPlanet plans to finance procurement of components and hardware from IPO proceeds, internally generated funds and bank borrowings. The article presents the order as part of RedPlanet's move beyond its enterprise ICT business into renewable energy infrastructure. The project awarder is not named.</p>
+          <a href="https://solarquarter.com/2026/11/05/redplanet-secures-rm7-09-million-order-for-15-mw-solar-project-in-sabah-malaysia/" target="_blank" rel="noopener">solarquarter.com ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-08-26</span> <a href="https://finance.biggo.com/news/b56fc6ab-3d11-4509-8bab-300d70c4f9dc" target="_blank" rel="noopener">Meta Bright's TTOP Unit Secures RM18.2 Million Solar EPCC Contract in Negeri Sembilan</a></li>
+              <li><span class="sdate">2026-08-21</span> <a href="https://energynews.pro/en/founder-group-secures-15-million-epcc-solar-subcontract-in-malaysias-kedah" target="_blank" rel="noopener">Founder Energy Secures MYR 6.05M EPCC Subcontract for 29.99 MWac CGPP Solar Facility in Kedah</a></li>
+              <li><span class="sdate">2026-03-19</span> <a href="https://solarquarter.com/2026/03/19/solarvest-secures-36-mw-solar-project-in-kelantan-under-malaysias-lss4-programme/" target="_blank" rel="noopener">Solarvest Secures 36 MW Solar EPCC Contract in Kelantan Under LSS4 Programme</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>PPAs &amp; MoUs</h4>
+      <div class="entry">
+        <div class="date">Nov 6</div>
+        <div>
+          <h3>Northern Solar Secures Two CRESS Contracts Totalling 189 MWac Solar with BESS for Two Malaysian Data Centres (100 MWac and 89 MWac)</h3>
+          <p>Northern Solar Holdings Berhad secured two contracts totalling 189 MW of solar capacity with battery energy storage systems to supply two data centres in Malaysia, awarded to its wholly owned subsidiary Northern Solar Assets Sdn. Bhd. under CRESS. The first covers 100 MWac of solar with BESS for a data centre developed by a Malaysian property investment and data centre infrastructure company, with an annual electricity requirement of 262.8 million kWh. The second covers 89 MWac of solar with BESS, awarded by a Malaysian subsidiary of a Singapore-based data centre operator, for a facility with an annual requirement of 233.89 million kWh. Together the two data centres are expected to need nearly 500 million kWh a year. Project values and commencement dates were not disclosed.</p>
+          <a href="https://renewablewatch.in/news/northern-solar-secures-solar-and-battery-storage-contracts-for-malaysia-data-centres-12788582" target="_blank" rel="noopener">renewablewatch.in ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-09-29</span> <a href="https://www.thestar.com.my/business/business-news/2026/09/29/sd-guthrie-jv-inks-21-year-renewable-energy-deal-for-data-centres" target="_blank" rel="noopener">G3nerasi Kinta (SD Guthrie + Gamuda + Gentari) Signs 21-Year CRESS Term Sheet for 680 MWac Solar + BESS</a></li>
+              <li><span class="sdate">2025-12-16</span> <a href="https://totalenergies.com/news/press-releases/malaysia-totalenergies-signs-new-renewable-power-agreement-google-supply-data" target="_blank" rel="noopener">TotalEnergies Signs 21-Year Solar PPA with Google for Malaysia Data Centres</a></li>
+              <li><span class="sdate">2025-01-17</span> <a href="https://www.nst.com.my/business/corporate/2025/01/1162428/uem-lestra-secures-offtakers-solar-plant-commits-rm25bil-phase-1" target="_blank" rel="noopener">UEM Lestra Secures Offtakers for Solar Plant, Commits RM2.5bil for Phase 1</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>Policy changes</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(4)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-27</span> <a href="https://theedgemalaysia.com/node/823447" target="_blank" rel="noopener">TNB Pledges to Connect Ministry-Approved Data Centres to the Grid Within One Year</a></li>
+            <li><span class="sdate">2026-10-14</span> <a href="https://theedgemalaysia.com/node/821755" target="_blank" rel="noopener">CRESS System Access Charge Revised Up to 18 Sen/kWh, 4 Sen Temporary Surcharge Added to September's 14 Sen Rate</a></li>
+            <li><span class="sdate">2026-10-13</span> <a href="https://theedgemalaysia.com/node/821622" target="_blank" rel="noopener">Malaysia Deputy Energy Minister Proposes Requiring Data Centre Operators to Self-Generate Power</a></li>
+            <li><span class="sdate">2026-10-09</span> <a href="https://theedgemalaysia.com/node/821220" target="_blank" rel="noopener">Malaysia Budget 2027 Energy and Green Incentives: TNB RM15B Grid, GITA/GITE Extended to 2030, RM1B KWAP Climate Fund</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(4)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-26</span> <a href="https://theedgemalaysia.com/node/823240" target="_blank" rel="noopener">Maybank, DBS and IFC Sign Memorandum with Ditrolic Energy on Financing Framework for US$6B Southern Johor Renewable Energy Corridor</a></li>
+            <li><span class="sdate">2026-10-01</span> <a href="https://theedgemalaysia.com/node/820165" target="_blank" rel="noopener">MBSB Bank Provides RM66.35 Million Financing to GO Energy for Solar PV at 13 UiTM Campuses and 35 BHPetrol Stations</a></li>
+            <li><span class="sdate">2026-09-01</span> <a href="https://www.pv-magazine-india.com/2026/09/01/blueleaf-universal-peak-achieve-financial-close-for-100-mw-400-mwh-bess-project-in-malaysia/" target="_blank" rel="noopener">Blueleaf Energy-Universal Peak BKHM BESS Achieves Financial Close for 100 MW/400 MWh MyBeST Project</a></li>
+            <li><span class="sdate">2026-07-31</span> <a href="https://technode.global/2026/07/31/ocbc-bank-commits-79m-to-support-battery-energy-storage-system-project-under-mybest-in-malaysia/" target="_blank" rel="noopener">OCBC Bank Commits RM325M to Finance ERS Energy's 100 MW/400 MWh Bahau MyBeST BESS</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Markets</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(4)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-20</span> <a href="https://www.thestar.com.my/news/nation/2026/10/20/123gw-energy-capacity-approved-for-data-centres-as-of-august-parliament-told" target="_blank" rel="noopener">Malaysia Has Approved 12.3 GW of Electricity Supply Capacity for Data Centres as of August; Sector Maximum Demand Projected at 8.39 GW by 2030</a></li>
+            <li><span class="sdate">2026-10-02</span> <a href="https://theedgemalaysia.com/node/820314" target="_blank" rel="noopener">Mah Sing and Kinergy Sign Non-Binding Term Sheet to Evaluate Captive Power and CRESS Solutions for Data Centre Sites</a></li>
+            <li><span class="sdate">2026-09-28</span> <a href="https://www.businesstoday.com.my/2026/09/28/data-centre-capacity-in-malaysia-projected-to-quadruple-to-2055-megawatts-by-end-2026-juwai/" target="_blank" rel="noopener">Malaysia Data Centre Capacity to Nearly Quadruple to 2,055 MW by End-2026 (Juwai IQI)</a></li>
+            <li><span class="sdate">2026-09-08</span> <a href="https://www.eco-business.com/news/malaysias-power-grid-strains-under-data-centre-boom-and-renewables-growth/" target="_blank" rel="noopener">Malaysia Grid Straining Under Data Centre Boom and Renewables Integration</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="indonesia">
+    <div class="country-head"><h2>Indonesia</h2><span class="count-pill">2 entries</span></div>
+
+    <div class="subsection">
+      <h4>Policy changes</h4>
+      <div class="entry">
+        <div class="date">Nov 9</div>
+        <div>
+          <h3>Indonesia Targets Reservoirs and Lakes for Floating Solar to Meet 100 GW Solar Target Over Three Years; ESDM Estimates Up to 90 GW Across 250 Water Bodies, Jatigede and Jatiluhur Next for Auctions</h3>
+          <p>Facing land constraints on its most densely populated islands, Indonesia is turning to lakes and reservoirs to meet a new target of installing 100 GW of solar capacity over the next three years. Total national generation capacity is approximately 88 GW, with solar at 1.5 GW. The Energy and Mineral Resources Ministry estimates up to 90 GW of floating solar potential across 250 inland water bodies. The Cirata reservoir in West Java, built by PLN and Masdar and operating since 2023 with 340,000 floating panels for about 50,000 homes, is cited as the largest floating solar plant in Southeast Asia and the model. Planners are targeting existing hydro dams to reduce infrastructure costs, since they already have substations and transmission lines, and the hybrid model lets operators rely on solar in daytime while conserving reservoir water for hydro at night. Minister Bahlil Lahadalia said the programme could save up to Rp73.9 trillion (US$4.1 billion) a year in energy subsidies.</p>
+          <a href="https://www.thejakartapost.com/adv/2026/11/09/indonesia-eyes-reservoirs-for-100gw-solar-expansion-amid-land-shortages" target="_blank" rel="noopener">thejakartapost.com ↗</a>
+          <details class="similar">
+            <summary>Policy history<span class="kind">(4)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-05-29</span> <a href="https://e.vnexpress.net/news/business/economy/indonesia-earmarks-71b-for-mega-solar-power-project-5080993.html" target="_blank" rel="noopener">Indonesia Identifies 24,000 Hectares on Java for 100 GW Solar Programme, USD 71.3B Investment, 17 GW Priority Phase</a></li>
+              <li><span class="sdate">2026-08-14</span> <a href="https://greentechlead.com/solar/indonesia-targets-13-gw-solar-rollout-to-replace-diesel-power-in-first-phase-of-100-gw-programme-54737" target="_blank" rel="noopener">Indonesia Prioritises 13 GW Solar+BESS First Phase of 100 GW Programme to Replace ~5,200 Diesel Plants</a></li>
+              <li><span class="sdate">2026-09-02</span> <a href="https://solarquarter.com/2026/09/02/indonesia-launches-100-gwp-solar-program-opens-4-7-gwp-tender-pipeline/" target="_blank" rel="noopener">Indonesia Officially Launches 100 GWp Solar Programme: 4.7 GWp IPP-Ready Tender Pipeline Including Jatiluhur and Cirata Floating Solar</a></li>
+              <li><span class="sdate">2026-09-29</span> <a href="https://en.antaranews.com/news/433417/govt-to-revise-electricity-master-plan-for-100-gw-solar-target" target="_blank" rel="noopener">Indonesia Revising RUPTL Electricity Master Plan to Accommodate 100 GWp Solar Target</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>Markets</h4>
+      <div class="entry">
+        <div class="date">Nov 2</div>
+        <div>
+          <h3>Yingfa Ruineng Unveils First Overseas Plant: 7.5 GW TOPCon Cell Facility in Indonesia, Operated by Subsidiary BCI</h3>
+          <p>Chinese PV manufacturer Yingfa Ruineng unveiled its first overseas plant, a 7.5 GW TOPCon cell facility in Indonesia operated by subsidiary BCI, at a technology launch event in Jakarta. It is intended as a regional supply hub for Southeast Asia, the Middle East and other markets, and the company said the investment supports Indonesia's 100 GW solar programme and the TKDN local-content framework for PV projects. Its manufacturing bases (Tianchang, Yibin and Mianyang in China, plus the new Indonesian base) have combined effective capacity of 51.5 GW, including 45.5 GW of n-type TOPCon; overseas markets were 40% of 2025 revenue. It reported TOPCon cell efficiency of 27.3% and BC cell efficiency of 28%, with testing conditions not disclosed. The article notes that the US Department of Commerce finalised anti-dumping and countervailing duties on cells from Indonesia, India and Laos in September 2026.</p>
+          <a href="https://www.pv-tech.org/yingfa-ruineng-launches-7-5gw-topcon-solar-cell-manufacturing-plant-in-indonesia/" target="_blank" rel="noopener">pv-tech.org ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2025-06-27</span> <a href="https://themachinemaker.com/news/longi-unveils-solar-panel-manufacturing-facility-in-indonesia/" target="_blank" rel="noopener">LONGi Unveils Solar Panel Manufacturing Facility in Indonesia</a></li>
+              <li><span class="sdate">2025-05-09</span> <a href="https://indonesiabusinesspost.com/4274/markets-and-finance/indonesia-and-laos-solar-exports-surge-to-u-s-as-tariffs-hit-se-asian-rivals" target="_blank" rel="noopener">Indonesia and Laos Solar Exports Surge to U.S. as Tariffs Hit SE Asian Rivals</a></li>
+              <li><span class="sdate">2024-11-01</span> <a href="https://indonesiabusinesspost.com/risks-opportunities/pln-indonesia-power-launches-solar-panel-factory-to-boost-renewable-energy-capacity/" target="_blank" rel="noopener">PLN Indonesia Power Launches Solar Panel Factory</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>Competitor activity</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-06</span> <a href="https://www.manilatimes.net/2026/10/12/tmt-newswire/pr-newswire/yude-solar-and-sedayusolar-form-strategic-joint-venture-to-develop-solar-projects-in-indonesia/2443428" target="_blank" rel="noopener">GoodWe Subsidiary Yude Solar Forms JV with Indonesian EPC SEDAYUSolar to Develop C&amp;I and Utility-Scale Solar Projects</a></li>
+            <li><span class="sdate">2026-09-28</span> <a href="https://www.indexbox.io/blog/indonesia-nickel-project-advances-with-hybrid-solar-and-storage-plan/" target="_blank" rel="noopener">PT Kolaka Nickel Indonesia Advances 20 MWp Solar + 20 MW / 30 MWh BESS Hybrid Project in Southeast Sulawesi</a></li>
+            <li><span class="sdate">2026-07-31</span> <a href="https://investortrust.id/market/111294/barito-renewables-profits-surge-29-as-green-energy-expansion-and-lower-debt-costs-drive-gains?page=english-edition" target="_blank" rel="noopener">PT Barito Renewables Energy H1 2026 Net Profit Surges 29% to USD 106M on Geothermal and Wind Growth</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>PPAs &amp; MoUs</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-23</span> <a href="https://indonesiabusinesspost.com/7651/energy-and-resources/chinese-group-gem-eyes-sulawesi-solar-project-with-dayabumi" target="_blank" rel="noopener">China's GEM Group Signs MoU with Dayabumi Energi for 90 MWp Solar and 40 MWh BESS in Central Sulawesi</a></li>
+            <li><span class="sdate">2026-09-18</span> <a href="https://www.businesstimes.com.sg/international/asean/singapores-bdx-starts-construction-640-mw-ai-data-centre-indonesia" target="_blank" rel="noopener">BDx (Singapore) Breaks Ground on 640 MW AI Data Centre in Indonesia, Targets 100% Renewable Energy</a></li>
+            <li><span class="sdate">2026-09-16</span> <a href="https://www.edb.gov.sg/en/news-and-insights/tuas-power-to-buy-green-energy-from-12-3b-solar-plants-near-batam-from-2027" target="_blank" rel="noopener">Tuas Power Signs PPA to Buy Green Electricity from Solar Projects Near Batam, Import to Singapore Grid from 2027</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-03-10</span> <a href="https://solarquarter.com/2026/03/10/frank-phuans-equator-renewables-asia-raises-s50-million-to-expand-solar-and-green-hydrogen-projects-in-indonesia/" target="_blank" rel="noopener">Equator Renewables Asia Raises $50 Million to Develop 2.2 GWp Solar, BESS and Green Hydrogen in Indonesia</a></li>
+            <li><span class="sdate">2026-03-09</span> <a href="https://www.saurenergy.com/solar-energy-news/indonesias-danantara-secures-14-billion-for-50-gw-solar-manufacturing-facility-11187348" target="_blank" rel="noopener">Danantara Secures $1.4 Billion for 50 GW Solar Panel Manufacturing Facility in Indonesia</a></li>
+            <li><span class="sdate">2026-01-06</span> <a href="https://solarquarter.com/2026/01/06/indonesias-pasuruan-100-mw-solar-project-secures-usd-21-million-financing-for-clean-energy-expansion/" target="_blank" rel="noopener">AIIB Approves USD 21 Million Financing for Pasuruan 100 MW Solar Project in East Java</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="thailand">
+    <div class="country-head"><h2>Thailand</h2><span class="count-pill">1 entry</span></div>
+
+    <div class="subsection">
+      <h4>Competitor activity</h4>
+      <div class="entry">
+        <div class="date">Nov 3</div>
+        <div>
+          <h3>Banpu NEXT Targets Over 300 MW of Clean Power Capacity in Thailand by 2030 and Plans Direct PPAs for Data Centres Combining Baseload with Solar and BESS</h3>
+          <p>Banpu NEXT is advancing solar and BESS for industrial estates, data centres and large businesses, targeting over 300 MW of clean power generation capacity in Thailand by 2030. It cites more than 200 commercial and industrial customer projects nationwide, expected to cut emissions by up to 100,000 tons a year. Delivered projects include floating solar at Apex Green Industrial Estate (Chachoengsao), rooftop solar at Summer Lasalle, rooftop and carport solar at BITEC BURI (Bangna), and, most recently, rooftop solar with BESS at Green Rubber Energy's tyre recycling plant in Samut Prakan. CEO Smittipon Srethapramote said Thailand's draft PDP 2026 aims to raise the renewable share with BESS, and that the pipeline includes solar with BESS and Direct PPAs. Banpu's Future Tech pillar (Banpu NEXT) working with its Power+ pillar is positioned to offer Direct PPAs to large data centres combining base load power plants with solar and BESS, in line with the NEPC's approval of Direct PPA measures.</p>
+          <a href="https://www.thestorythailand.com/en/banpu-next-targets-300mw/" target="_blank" rel="noopener">thestorythailand.com ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-10-08</span> <a href="https://www.kaohooninternational.com/markets/592312" target="_blank" rel="noopener">B.Grimm Power Plans 250 MW Data Centre Investment with New International Partner, Total Target 500 MW by 2030</a></li>
+              <li><span class="sdate">2026-09-23</span> <a href="https://solarquarter.com/2026/09/23/b-grimm-power-and-amata-advance-42-5-mwp-floating-solar-project-in-thailand/" target="_blank" rel="noopener">B.Grimm Power and AMATA Launch 42.5 MWp Floating Solar Project at Amata City Chonburi</a></li>
+              <li><span class="sdate">2026-08-14</span> <a href="https://www.nationthailand.com/business/economy/40069862" target="_blank" rel="noopener">Thailand Renewable Energy Pipeline Draws Up to USD 2.61 Billion in Investment: Gulf, B.Grimm, GUNKUL, BCPG</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>Policy changes</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(4)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-01</span> <a href="https://www.nationthailand.com/news/policy/40071762" target="_blank" rel="noopener">Thailand Data Centre Business Policy Committee Approves Separate Legal Definition for Data Centre Buildings</a></li>
+            <li><span class="sdate">2026-09-15</span> <a href="https://www.neimagazine.com/news/us-backs-thailands-first-smr-study/" target="_blank" rel="noopener">USTDA and EGAT Sign Grant Agreement for Thailand's First SMR Feasibility Study</a></li>
+            <li><span class="sdate">2026-09-11</span> <a href="https://solarquarter.com/2026/09/11/thailand-to-launch-subsidised-rooftop-solar-programme-for-1-million-households/" target="_blank" rel="noopener">Thailand to Launch Subsidised Rooftop Solar Programme for 1 Million Households</a></li>
+            <li><span class="sdate">2026-09-05</span> <a href="https://www.nationthailand.com/news/policy/40070671" target="_blank" rel="noopener">Thailand PDP 2026 Public Consultation on 8 September: Four Net-Zero Scenarios, 50,900 MW New Capacity by 2037</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>PPAs &amp; MoUs</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-09</span> <a href="https://www.kaohooninternational.com/economics/592392" target="_blank" rel="noopener">Thailand Committee Moves to Renegotiate or Cancel Unsigned Legacy Renewable PPAs: Solar 2.1579 THB/kWh, Wind 2.9015 THB/kWh</a></li>
+            <li><span class="sdate">2025-11-10</span> <a href="https://www.globenewswire.com/news-release/2025/11/10/3184691/0/en/DayOne-Strengthens-Thailand-s-Digital-Hub-with-Amata-as-Chonburi-Campus-Expands-Toward-the-Country-s-First-1GW-Power-Platform.html" target="_blank" rel="noopener">DayOne Signs Renewable PPA for Chonburi Data Centre Expansion</a></li>
+            <li><span class="sdate">2025-08-04</span> <a href="https://solarquarter.com/2025/08/04/nestle-thailand-achieves-100-renewable-power-across-six-factories-under-ugt1-program/" target="_blank" rel="noopener">Nestle Thailand Achieves 100% Renewable Power Across Six Factories under UGT1</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-09-16</span> <a href="https://ciosea.economictimes.indiatimes.com/news/consumer-tech/responsability-deepens-thailand-clean-energy-push-with-verdant-energy-funding/134340827" target="_blank" rel="noopener">responsAbility Commits USD 25M Non-Recourse Project Financing to Verdant Energy for Thailand C&amp;I Solar</a></li>
+            <li><span class="sdate">2026-02-10</span> <a href="https://solarquarter.com/2026/02/10/adb-partners-with-gulfs-gre-for-350-million-to-build-three-thailand-renewable-projects-including-126-mw-solarbess-and-a-68-mw-solar-plant/" target="_blank" rel="noopener">ADB Partners with GULF's GRE for $350 Million to Build 126 MW Solar+BESS and 68 MW Solar in Thailand</a></li>
+            <li><span class="sdate">2025-09-23</span> <a href="https://solarquarter.com/2025/09/23/constant-energy-secures-thb-300-million-green-financing-from-hsbc-to-expand-renewable-projects-in-thailand/" target="_blank" rel="noopener">Constant Energy Secures THB 300 Million Green Financing from HSBC for Thailand Solar and BESS</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Markets</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-09-27</span> <a href="https://www.bangkokpost.com/thailand/general/3326790/govt-defends-solar-sector-as-china-supplies-993-of-imports" target="_blank" rel="noopener">Thailand Solar Panel Imports Jump 88.7% to USD 426.7M in Jan-Jul 2026, China Supplies 99.3%</a></li>
+            <li><span class="sdate">2026-06-23</span> <a href="https://technode.global/2026/06/23/thailand-data-center-capacity-set-to-quadruple-as-hyperscalers-drive-growth-bmi/" target="_blank" rel="noopener">Thailand Data Centre Capacity Set to Quadruple: 944 MW Pipeline vs 216 MW Live as of Q2 2026 (BMI)</a></li>
+            <li><span class="sdate">2025-01-11</span> <a href="https://erp.today/aws-launches-infrastructure-region-in-apac-plans-us5-billion-thailand-investment/" target="_blank" rel="noopener">AWS Launches Infrastructure Region in Thailand</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="vietnam">
+    <div class="country-head"><h2>Vietnam</h2><span class="count-pill">4 entries</span></div>
+
+    <div class="subsection">
+      <h4>Policy changes</h4>
+      <div class="entry">
+        <div class="date">Nov 9</div>
+        <div>
+          <h3>Vietnam MOIT Issues 2026 Solar Generation Price Framework (Decision 2946/QD-BCT): Highest Ceiling 2,120.31 VND/kWh for Floating Solar with BESS in the North</h3>
+          <p>The Ministry of Industry and Trade issued Decision No. 2946/QD-BCT, dated 5 November 2026 and effective 5 November 2026, approving the 2026 electricity generation price framework for solar power plants under point a, clause 2, Article 1 of Circular 09/2025/TT-BCT. Maximum prices (VND/kWh) are set by region (North / Central / South) and by type. Ground-mounted without BESS: 1,591.02 / 1,293.17 / 1,104.32. Floating without BESS: 1,939.74 / 1,560.63 / 1,340.21. Ground-mounted with BESS: 1,813.48 / 1,469.90 / 1,254.97. Floating with BESS: 2,120.31 / 1,703.21 / 1,461.39. The decision also updates the zoning list: the country is divided into 3 regions covering 34 provinces and cities, with 18 in the North, 8 in the Central region (Quang Tri, Hue, Quang Ngai, Da Nang, Gia Lai, Dak Lak, Khanh Hoa and Lam Dong) and the remaining 8 in the South. Gia Lai projects therefore use the Central figures.</p>
+          <a href="https://www.vietnam.vn/en/bo-cong-thuong-chot-khung-gia-dien-mat-troi-nam-2026-cao-nhat-2-120-dong-kwh" target="_blank" rel="noopener">vietnam.vn ↗</a>
+          <details class="similar">
+            <summary>Policy history<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2025-04-15</span> <a href="https://www.pv-magazine.com/2025/04/15/vietnam-publishes-feed-in-tariffs-for-large-scale-solar-plus-storage/" target="_blank" rel="noopener">Vietnam Publishes Feed-in Tariffs for Large-Scale Solar-Plus-Storage</a></li>
+              <li><span class="sdate">2026-08-26</span> <a href="https://news.tuoitre.vn/vietnam-weighs-solar-power-pricing-by-location-103260826173054412.htm" target="_blank" rel="noopener">Vietnam MOIT Proposes Location-Based Solar and Wind Power Pricing Under Circular 09 Amendment</a></li>
+              <li><span class="sdate">2026-10-15</span> <a href="https://lnkd.in/p/gZjMKR4m" target="_blank" rel="noopener">Vietnam EPTC Releases 2026 Framework Electricity Tariff Calculation for Ground-Mounted Solar, Floating Solar and Solar+BESS</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>Competitor activity</h4>
+      <div class="entry">
+        <div class="date">Nov 7</div>
+        <div>
+          <h3>Gia Lai Breaks Ground on 180 MW Van Canh 2 Wind Farm (VND 7,700B), Operational Target 2028, About 503 Million kWh a Year</h3>
+          <p>On 7 November, in Van Canh commune, Gia Lai, Vinh Ben Renewable Energy Co., Ltd. held the groundbreaking for the Van Canh 2 Wind Power Plant, attended by Standing Deputy Prime Minister Pham Gia Tuc. The project is in Van Canh and Canh Lien communes, with 180 MW capacity, total investment of VND 7,700 billion, expected operation in 2028 and output of about 503 million kWh a year. It is included in the adjusted national power development plan for 2021 to 2030 with a vision to 2050, and the provincial People's Committee has approved the investment policy. Provincial chairman Pham Anh Tuan said planned renewable capacity in the province by 2035 is about 9,657 MW and that 85 renewable projects totalling 4,271 MW are already operating. He asked the investor to finish on or ahead of schedule for 2028 operation and to coordinate the connection and transmission items so power can be evacuated.</p>
+          <a href="https://www.vietnam.vn/en/gia-lai-don-them-du-an-nang-luong-tai-tao-quy-mo-7-700-ty-dong" target="_blank" rel="noopener">vietnam.vn ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-09-24</span> <a href="https://theinvestor.vn/why-two-wind-power-projects-by-nexif-ratch-energy-vinenergo-may-miss-2026-start-d20080.html" target="_blank" rel="noopener">Nexif Ratch Energy's 143 MW Van Canh Wind Slips to Q1 2027; VinEnergo's 750 MW Hon Trau Phase 1 Faces Marine Area Overlap Dispute in Gia Lai</a></li>
+              <li><span class="sdate">2026-09-03</span> <a href="https://energynews.pro/en/levanta-renewables-approves-40-mw-wind-farm-in-vietnam" target="_blank" rel="noopener">Levanta Renewables (Actis) Secures Investment Approval for 40 MW Ia Dreng 1 Wind Farm in Gia Lai Province</a></li>
+              <li><span class="sdate">2026-05-22</span> <a href="https://theinvestor.vn/tai-tam-expands-energy-portfolio-with-70-mln-wind-power-project-in-central-vietnam-d19134.html" target="_blank" rel="noopener">Tai Tam Group Approved as Investor for 42 MW Ia Blu 1 Wind Power Plant Phase 2 in Gia Lai</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Nov 4</div>
+        <div>
+          <h3>Dak Lak Approves $355M, 452 MW Floating Solar Project at Ea Sup Thuong Reservoir with BESS, Completion by End-2028</h3>
+          <p>The Dak Lak Provincial People's Committee approved the investment for a $355 million, 452 MW floating solar project at the Ea Sup Thuong reservoir through Decision No. 3526/QD-UBND dated 31 October, with completion expected by the end of 2028. The project includes a floating 35 kV collection network, a 35/220 kV substation with two 250 MVA transformers, and a 6 km double-circuit 220 kV line to the Krong Buk substation, where two more 220 kV bays will be added. A battery energy storage system is included but its capacity was not disclosed. Equity will cover 20% of total investment, with the remaining 80% from other funding sources. Citing Tuoi Tre News, the article says the developer consortium is IPC Engineering and Construction, Tay Nguyen Infrastructure Construction and Development, SD Vietnam Construction Investment and Ea Sup Investment, on a site of about 527 hectares of which 524 hectares is reservoir surface.</p>
+          <a href="https://www.indexbox.io/blog/vietnam-approves-355-million-452-mw-floating-solar-project-on-ea-sup-thuong-reservoir/" target="_blank" rel="noopener">indexbox.io ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-08-05</span> <a href="https://news.tuoitre.vn/vietnam-starts-construction-of-296-million-solar-power-project-103260805111035176.htm" target="_blank" rel="noopener">Vietnam Starts Construction of 450 MW Dau Tieng 5 Solar Plant in Tay Ninh, First DPPA Project</a></li>
+              <li><span class="sdate">2026-06-27</span> <a href="https://theinvestor.vn/kn-holdings-starts-construction-on-291-mln-floating-solar-project-in-central-vietnam-d19416.html" target="_blank" rel="noopener">KN Holdings Begins Construction of 304 MW KN Srepok 3 Floating Solar Plant in Dak Lak, $291M</a></li>
+              <li><span class="sdate">2026-05-18</span> <a href="https://solarquarter.com/2026/05/18/evngenco1-proposes-270-mw-floating-solar-projects-in-vietnams-lam-dong-province/" target="_blank" rel="noopener">EVNGENCO1 Proposes 270 MW Floating Solar Projects on Reservoirs in Lam Dong Province</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Nov 2</div>
+        <div>
+          <h3>Thanh Hoa Energises 10 MW / 10 MWh BESS at Hoang Long 110 kV Substation, Connected at 22 kV</h3>
+          <p>On 31 October 2026, Thanh Hoa High Voltage Grid Enterprise, with the BA3 Project Management Board and departments of Thanh Hoa Power Company, energised the battery energy storage system at the Hoang Long 110 kV substation after more than a month of construction, installation and operational testing. The system has a maximum discharge capacity of 10 MW and storage capacity of 10 MWh, connected to the 22 kV grid. It charges at low load and discharges at peak, reducing load on the 110/22 kV transformers and making better use of existing infrastructure, and also supports voltage and reactive power regulation. The article says Thanh Hoa province aims for double-digit economic growth in 2026 to 2030 and that storage can also help integrate renewable energy when needed. The article is published by Thanh Hoa Power Company and does not state owner or cost.</p>
+          <a href="https://www.vietnam.vn/en/dong-dien-thanh-cong-he-thong-pin-luu-tru-nang-luong-bess-tai-tram-bien-ap-110-kv-hoang-long" target="_blank" rel="noopener">vietnam.vn ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(2)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-08-20</span> <a href="https://vir.com.vn/trinasolar-powers-10-mwh-solar-and-storage-project-in-phu-quoc-159029.html" target="_blank" rel="noopener">Trinasolar Supplies 3 MWp Solar + 10 MWh BESS for Solar-Plus-Storage Project at Corona Resort, Phu Quoc</a></li>
+              <li><span class="sdate">2026-04-10</span> <a href="https://en.vneconomy.vn/new-energy-storage-battery-factory-launched-in-hung-yen.htm" target="_blank" rel="noopener">New Energy Storage Battery Factory Launched in Hung Yen Province, Northern Vietnam</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>PPAs &amp; MoUs</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-09-13</span> <a href="https://businessupturn.com/asia/southeast-asia/vietnam/totalenergies-vietnam-lng-pv-gas-tt-group/" target="_blank" rel="noopener">TotalEnergies Signs LNG, Renewables and LPG MoUs with PV GAS and T&amp;T Group</a></li>
+            <li><span class="sdate">2026-06-03</span> <a href="https://www.ajupress.com/view/20260603122470289" target="_blank" rel="noopener">Samsung Begins Direct Purchase of Renewable Energy at Vietnam Factory Under New DPPA Framework</a></li>
+            <li><span class="sdate">2026-01-29</span> <a href="https://ts2.tech/en/sembcorp-share-price-jumps-as-micron-power-deal-expands-and-vietnam-park-gets-green-light/" target="_blank" rel="noopener">Sembcorp Expands Micron Power Deal by 150 MW and Secures VSIP Hue Industrial Park Approval</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-08</span> <a href="https://powerline.net.in/news/vietnams-evnnpt-secures-usd27-million-loan-for-220-kv-transmission-line-12636503" target="_blank" rel="noopener">EVNNPT Secures USD 27 Million Loan from VPBank (Raised from JBIC) for 220 kV Binh Duong 1 Transmission Line</a></li>
+            <li><span class="sdate">2026-10-07</span> <a href="https://dtinews.dantri.com.vn/vietnam-today/jica-plans-usd630m-a-year-in-loans-to-support-vietnams-growth-20261007165853162.htm" target="_blank" rel="noopener">JICA Plans JPY 100 Billion Per Year in Loans to Vietnam, Including JPY 50 Billion Green-Finance Policy Loan</a></li>
+            <li><span class="sdate">2026-07-20</span> <a href="https://solarquarter.com/2026/07/20/adb-signs-37-million-loan-for-vietnams-first-large-scale-floating-solar-project/" target="_blank" rel="noopener">ADB $37M Loan for Vietnam's First Large-Scale 47.5 MW Floating Solar Project</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Markets</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-29</span> <a href="https://en.vneconomy.vn/singapore-grants-conditional-approval-for-renewable-electricity-imports-from-vietnam.htm" target="_blank" rel="noopener">Singapore EMA Grants Sembcorp Utilities Conditional Approval as Importer for Vietnam-Malaysia-Singapore Project</a></li>
+            <li><span class="sdate">2026-08-28</span> <a href="https://theinvestor.vn/vietnams-southernmost-province-eyes-growth-from-19-projects-worth-153-bln-d19908.html" target="_blank" rel="noopener">Ca Mau Province Grants In-Principle Approvals for 19 Projects Worth $1.53B</a></li>
+            <li><span class="sdate">2026-07-20</span> <a href="https://theinvestor.vn/vietnam-state-utility-evn-urges-caution-over-expanding-direct-power-purchase-mechanism-to-electricity-retailers-d19598.html" target="_blank" rel="noopener">Vietnam State Utility EVN Urges Caution Over Expanding Direct Power Purchase Mechanism to Electricity Retailers</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="south-korea">
+    <div class="country-head"><h2>South Korea</h2><span class="count-pill">2 entries</span></div>
+
+    <div class="subsection">
+      <h4>Competitor activity</h4>
+      <div class="entry">
+        <div class="date">Nov 6</div>
+        <div>
+          <h3>Gaon Cable Wins 154 kV Transmission Cable Contract from BS Hanyang for 73.2 MW Saemangeum Sunshine Sharing Floating Solar, Part of Planned 2.1 GW Saemangeum Initiative</h3>
+          <p>Gaon Cable, a subsidiary of LS Cable &amp; System, said on 6 November it signed a contract with BS Hanyang to supply and install 154 kV high-voltage cables for the Saemangeum Sunshine Sharing Project, building the external transmission network that connects the complex to the grid. The project is a 73.2 MW floating solar facility in the Okgu area of Gunsan, North Jeolla Province, and Gaon Cable previously secured an order for its internal distribution cables. The project is part of the broader Saemangeum floating solar initiative, which has a planned capacity of 2.1 GW. Gaon Cable says it plans to expand grid orders for solar and offshore wind projects in South Korea and overseas, including subsequent Saemangeum projects. The contract value is not stated.</p>
+          <a href="https://www.thelec.net/news/articleView.html?idxno=15367" target="_blank" rel="noopener">thelec.net ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-09-10</span> <a href="https://www.thelec.net/news/articleView.html?idxno=13821" target="_blank" rel="noopener">LS ELECTRIC and KOMIPO Sign MoU to Jointly Develop Onshore Wind, Solar and BESS Projects in South Korea</a></li>
+              <li><span class="sdate">2026-08-07</span> <a href="https://evrimagaci.org/gpt/south-korea-breaks-ground-on-largest-solar-project-543667" target="_blank" rel="noopener">South Korea Breaks Ground on Country's Largest 400 MW Haenam Solar Complex, KOEN EPC, SK Hynix Offtake, COD 2028</a></li>
+              <li><span class="sdate">2026-01-20</span> <a href="https://www.waterpowermagazine.com/news/doosan-awards-andritz-yeongdong-pumped-storage-contract/" target="_blank" rel="noopener">Doosan Enerbility Awards ANDRITZ Contract for 500 MW Yeongdong Pumped Storage Hydropower Plant</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>Markets</h4>
+      <div class="entry">
+        <div class="date">Nov 4</div>
+        <div>
+          <h3>South Korea's Installed Renewable Capacity Overtakes Coal for the First Time: 41,040 MW vs 40,757 MW at 21 October 2026, 25.4% of Total, Second Behind LNG</h3>
+          <p>Per the power exchange KPX, South Korea's installed renewable capacity exceeded coal for the first time. On the 21 October 2026 reference date, renewables stood at 41,040 MW against 40,757 MW for coal, a lead of 283 MW, equal to 25.4 percent of total installed generation capacity, placing renewables second behind LNG at 46,788 MW (a gap of about 5,748 MW). The figures are installed capacity, not electricity generated. From end 2020 to end 2025 renewable capacity grew by about 3,504 MW a year on average, against about 807 MW a year for LNG. KPX assumes that at the current pace renewables could surpass LNG capacity within two to three years and become the largest source by installed capacity. The Ministry of Climate, Energy and Environment targets 100 GW of renewables by 2030 and at least 30 percent of generation from renewables by 2035; asked about bringing the 100 GW target forward, the ministry said it is still being discussed.</p>
+          <a href="https://denkstrom.org/en/goodnews/south-korea-renewables-overtake-coal-for-first-time/" target="_blank" rel="noopener">denkstrom.org ↗</a>
+          <details class="similar">
+            <summary>More like this<span class="kind">(3)</span></summary>
+            <ul>
+              <li><span class="sdate">2026-08-10</span> <a href="https://finance.biggo.com/news/3fcc4ff0-6858-4993-a217-ff21946c2c3e" target="_blank" rel="noopener">KEPCO Five Genco REC Purchases Hit Record KRW 2.06T in 2025</a></li>
+              <li><span class="sdate">2026-04-07</span> <a href="https://www.energymonitor.ai/news/south-korea-renewable-power-goal/" target="_blank" rel="noopener">South Korea Sets 20% Renewable Power Generation Target for 2030, Expands 100 GW Push</a></li>
+              <li><span class="sdate">2025-05-12</span> <a href="https://pulse.mk.co.kr/news/english/11314171" target="_blank" rel="noopener">Nuclear Power Becomes Korea's Top Energy Source</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="empty-strip">
+      <div class="strip-label">No entries this week</div>
+      <div class="empty-grid">
+      <div class="empty-card">
+      <h4>Policy changes</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(4)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-10-25</span> <a href="https://news.sbs.co.kr/english/article.do?news_id=N1008813653" target="_blank" rel="noopener">South Korea Plans Renewable Energy Target System for Public Institutions Including Idle Land Provision</a></li>
+            <li><span class="sdate">2026-10-20</span> <a href="https://en.sedaily.com/politics/2026/10/20/third-mega-zone-bill-would-widen-power-deals-cut" target="_blank" rel="noopener">Third Korean Mega-Zone Bill Would Extend PPAs to Non-Renewables Such as LNG Cogeneration</a></li>
+            <li><span class="sdate">2026-10-20</span> <a href="https://solarbytes.info/battery-and-energy-storage-system/south-korea-mcee-outdoor-bess-guideline-permit-time-3-months-12692057" target="_blank" rel="noopener">South Korea MCEE National Guideline Classes Sealed Outdoor BESS as a Structure, Cutting Permitting by Up to 3 Months</a></li>
+            <li><span class="sdate">2026-10-12</span> <a href="https://www.pv-magazine.com/2026/10/12/south-korea-details-auction-market-to-replace-renewable-quota-system/" target="_blank" rel="noopener">South Korea Publishes Draft Rules for New RE Auction Contract Market</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>PPAs &amp; MoUs</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(3)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-09-29</span> <a href="https://www.thelec.net/news/articleView.html?idxno=14273" target="_blank" rel="noopener">Korea Zinc Signs 20-Year Fixed-Price Solar PPA with Hanwha Shinhan Terawatt Hour</a></li>
+            <li><span class="sdate">2026-09-16</span> <a href="https://solarquarter.com/2026/09/16/gurin-energy-naver-sign-mou-for-216-mw-jindo-green-solar-project-in-south-korea/" target="_blank" rel="noopener">Gurin Energy and NAVER Sign MoU for 216 MW Jindo Green Solar Project</a></li>
+            <li><span class="sdate">2026-08-24</span> <a href="https://www.koreatimes.co.kr/business/companies/20260824/nexen-tire-accelerates-shift-to-renewable-energy-at-korean-plants" target="_blank" rel="noopener">Nexen Tire Signs Direct RE PPA with SK Innovation E&amp;S for 4 MW Wind+Solar at Yangsan Plant</a></li>
+        </ul>
+      </details>
+      </div>
+      <div class="empty-card">
+      <h4>Financing</h4>
+      <details class="pastentries">
+        <summary>Past entries<span class="kind">(2)</span></summary>
+        <ul>
+            <li><span class="sdate">2026-06-25</span> <a href="https://www.businesskorea.co.kr/news/articleView.html?idxno=270659" target="_blank" rel="noopener">Brookfield Asset Management Expands South Korea Investment Commitment to KRW 30 Trillion</a></li>
+            <li><span class="sdate">2026-04-09</span> <a href="https://biz.chosun.com/en/en-finance/2026/04/09/U6PLFRA3KJEILBIQXPBTXBUBV4/" target="_blank" rel="noopener">Shinan-Ui 390 MW Offshore Wind Closes KRW 2.5 Trillion Senior Loan Financing</a></li>
+        </ul>
+      </details>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-section" id="singapore">
+    <div class="country-head"><h2>Singapore</h2><span class="count-pill quiet">Quiet this week</span></div>
+    <div class="subsection">
+      <h4>Most recent entry</h4>
+      <details class="pastentries">
+        <summary>Most recent entry<span class="kind">(1)</span></summary>
+        <ul>
+          <li><span class="sdate">2026-10-27</span> <a href="https://www.ema.gov.sg/news-events/news/media-releases/2026/ema-launches-new-initiatives-to-boost-solar-deployment-in-singapore1" target="_blank" rel="noopener">Singapore Updates SS 673 Code of Practice for RECs: Renewable Electricity Claims in Singapore Must Use RECs Linked to Power Supplied to the Singapore Grid</a></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+  <div class="sp-library">
+    <h2>S&amp;P Global: Published this week</h2>
+    <p class="sp-lib-note">Other S&amp;P reports published 2–10 Nov 2026</p>
+
+    <div class="sp-lib-row">
+      <div class="sp-lib-title">Asia-Pacific Gas-Fired Power Generation Weekly Report: Softer demand cuts Asia gas burn; South Korea and Vietnam buck trend <span style="font-size:0.75em;color:var(--muted);font-weight:400;">· Nov 4, 2026</span></div>
+      <div class="sp-lib-links">
+        <a href="https://ibvogt-my.sharepoint.com/personal/tristan_pheh_ibvogt_com/Documents/Documents/ibv/MarketResources/S&amp;P/202611/Asia-Pacific_Gas-Fired_Power_Generation_Weekly_Report__Softer_demand_cuts_Asia_gas_burn__South_Korea_and_Vietnam_buck_trend.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="sp-lib-row">
+      <div class="sp-lib-title">From scale to value: How portfolio strategies are changing among Asia-Pacific power companies <span style="font-size:0.75em;color:var(--muted);font-weight:400;">· Nov 4, 2026</span></div>
+      <div class="sp-lib-links">
+        <a href="https://ibvogt-my.sharepoint.com/personal/tristan_pheh_ibvogt_com/Documents/Documents/ibv/MarketResources/S&amp;P/202611/From_scale_to_value__How_portfolio_strategies_are_changing_among_Asia-Pacific_power_companies.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="sp-lib-row">
+      <div class="sp-lib-title">Solar and storage rollout could slow LNG growth in Southeast Asia <span style="font-size:0.75em;color:var(--muted);font-weight:400;">· Nov 5, 2026</span></div>
+      <div class="sp-lib-links">
+        <a href="https://ibvogt-my.sharepoint.com/personal/tristan_pheh_ibvogt_com/Documents/Documents/ibv/MarketResources/S&amp;P/202611/Solar_and_storage_rollout_could_slow_LNG_growth_in_Southeast_Asia_-_November_2026.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+    <div class="sp-lib-row">
+      <div class="sp-lib-title">Southeast Asia Power and Renewables Market Briefing: Q3 2026 <span style="font-size:0.75em;color:var(--muted);font-weight:400;">· Nov 2026</span></div>
+      <div class="sp-lib-links">
+        <a href="https://ibvogt-my.sharepoint.com/personal/tristan_pheh_ibvogt_com/Documents/Documents/ibv/MarketResources/S&amp;P/202611/Southeast_Asia_Power_and_Renewables_Market_Briefing__Q3_2026.pdf" target="_blank" rel="noopener">PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Built from the seven country-specific "Radar (auto-refreshed).xlsx" files in MarketResources, not the master Radar.xlsx. Window: 2–10 November 2026 (Week 45), based on each file's Date column. S&amp;P Global reports (red) are licensed content, available in SharePoint.
+    <br><br>
+    <a href="https://ibvogt-my.sharepoint.com/personal/tristan_pheh_ibvogt_com/Documents/Documents/ibv/MarketResources/Radar.xlsx" target="_blank" rel="noopener" style="color:var(--moss-dark);border-bottom:1px solid var(--moss);text-decoration:none;">Open the master Radar.xlsx in SharePoint ↗</a>
+  </footer>
+
+</div>
+</body>
+</html>

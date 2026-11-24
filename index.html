@@ -45,10 +45,14 @@
     </div>
     <div class="editions-label">Editions</div>
     <div class="week-list">
-      <div class="wk active" id="wk-46" onclick="sel(46)">
+      <div class="wk active" id="wk-47" onclick="sel(47)">
+        <div class="wk-num">Week 47</div>
+        <div class="wk-range">16–24 Nov 2026</div>
+        <span class="badge">Latest</span>
+      </div>
+      <div class="wk" id="wk-46" onclick="sel(46)">
         <div class="wk-num">Week 46</div>
         <div class="wk-range">10–16 Nov 2026</div>
-        <span class="badge">Latest</span>
       </div>
       <div class="wk" id="wk-45" onclick="sel(45)">
         <div class="wk-num">Week 45</div>
@@ -88,6 +92,7 @@ microsoftTeams.app.initialize()
   .catch(() => { console.warn("Running outside Microsoft Teams"); try { clarity("set","context","browser"); } catch(e) {} });
 
 const FILES = {
+  47:   'Week 47, 2026 - ibv APAC Dashboard.html',
   46:   'Week 46, 2026 - ibv APAC Dashboard.html',
   45:   'Week 45, 2026 - ibv APAC Dashboard.html',
   44:   'Week 44, 2026 - ibv APAC Dashboard.html',
@@ -107,7 +112,7 @@ function sel(id) {
     clarity("event", "view_" + label.toLowerCase().replace(/[^a-z0-9]+/g, "_"));
   } catch (e) {}
 }
-sel(46);
+sel(47);
 </script>
 </body>
 </html>
